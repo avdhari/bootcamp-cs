@@ -1,0 +1,10 @@
+<h1>home</h1>
+
+{% block content %}
+    {% for post in posts %}
+
+    <h3>{{post.title}}</h3>
+    <p>{{post.body}}</p>
+
+    {% endfor %}
+{% endblock %}
