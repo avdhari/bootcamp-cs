@@ -1,10 +1,17 @@
-<h1>home</h1>
 
 {% block content %}
-    {% for post in posts %}
+<h1>Post</h1>
+<ul>
+{% for post in posts %}
 
-    <h3>{{post.title}}</h3>
-    <p>{{post.body}}</p>
+    <li>
+        <a href="{% url 'postDetail' post.id %}"> {{post.title}} </a> 
+        <br>
+        <strong><small>{{post.author}}</small></strong> <small>{{post.date_created}}</small>
 
-    {% endfor %}
+    </li>
+
+{% endfor %}
+</ul> 
+
 {% endblock %}
