@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>New Post!</h1>
+<h1>Update {{post.title}}</h1>
 <br><br>
 <div class="'form-group">
 
@@ -10,7 +10,7 @@
         {% csrf_token %}
         {{form.as_p}}
         <a href="{% url 'home' %}" class="btn btn-danger">Cancel</a>
-        <button class="btn btn-success">&nbsp; Post &nbsp; </button>        
+        <button class="btn btn-success">&nbsp; Update &nbsp; </button>        
     </form>
 
 </div>

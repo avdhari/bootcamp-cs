@@ -1,11 +1,13 @@
+{% extends 'blog/base.html' %}
 
 {% block content %}
+
 <h1>Post</h1>
 <ul>
 {% for post in posts %}
 
     <li>
-        <a href="{% url 'postDetail' post.id %}"> {{post.title}} </a> 
+        <a href="{% url 'postDetail' post.pk %}"> {{post.title}} </a> 
         <br>
         <strong><small>{{post.author}}</small></strong> <small>{{post.date_created}}</small>
 

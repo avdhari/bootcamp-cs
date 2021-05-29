@@ -41,3 +41,32 @@ def PostDetail(request, pk):
     }
 
     return render(request, 'blog/postDetail.html', context)
+
+
+
+def UpdatePost(request, pk):
+    """Update an existing post"""
+    post = Post.objects.get(id=pk)
+    form = PostForm(instance=post)
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+
+    
+    context = {'form': form}
+    return render(request, 'blog/updatePost.html', context)
+
+
+
+def DeletePost(request, pk):
+    post = Post.objects.get(id=pk)
+    if request.method == 'POST':
+        post.delete()
+        return redirect('/')
+
+    context = {'post': post}
+    
+    return render(request, 'blog/deletePost.html', context)
